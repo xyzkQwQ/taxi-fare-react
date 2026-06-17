@@ -28,8 +28,11 @@ jobs:
           node-version: 24
           cache: npm
 
+      - name: Mise à jour de npm
+        run: npm install -g npm@latest
+        
       - name: Installation des dépendances
-        run: npm install
+        run: npm ci
 
       - name: Linting (ESLint)
         run: npm run lint
@@ -60,7 +63,10 @@ jobs:
         with:
           node-version: 24
           cache: npm
-
+      
+      - name: Mise à jour de npm
+        run: npm install -g npm@latest
+        
       - name: Installation des dépendances
         run: npm ci
 
