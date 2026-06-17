@@ -17,7 +17,7 @@ Développement ReactJS :
 
 Vous intervenez sur le développement d'une application dédiées aux chauffeurs de taxis.
 
-L'objectif est de livrer une application PHP qui permet aux utilisateurs de faire une estimation du tarif d'une course en fonction de critères qu'ils pourront saisir via un formulaire.
+L'objectif est de livrer une application JS qui permet aux utilisateurs de faire une estimation du tarif d'une course en fonction de critères qu'ils pourront saisir via un formulaire.
 
 Voici un apperçu de l'interface graphique :
 
