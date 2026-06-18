@@ -27,7 +27,7 @@ L'objectif est de livrer une application JS qui permet aux utilisateurs de faire
 
 Voici un apperçu de l'interface graphique :
 
-![Apperçu de l'interface](img/thumbnail.PNG)
+![Apperçu de l'interface](img/ui-example.PNG)
 
 > [!NOTE]  
 > L'application n'est pas encore pleinement fonctionnelle.
