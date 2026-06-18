@@ -81,8 +81,8 @@ jobs:
     name: Déploiement (GitHub Pages)
     runs-on: ubuntu-latest
     needs: build
-    # Ne se déclenche que sur la branche main
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    # Ne se déclenche que sur la branche solution
+    if: github.ref == 'refs/heads/solution' && github.event_name == 'push'
 
     permissions:
       contents: read
