@@ -38,43 +38,5 @@ export const TARIF_C = 1.58;
  * @returns {number} Le prix total de la course en euros.
  */
 export function calculateFare(jourSemaine, hour, zone, distance, estFerie) {
-  const estDimanche = jourSemaine === 0;
-  const estLundiSamedi = jourSemaine >= 1 && jourSemaine <= 6;
 
-  let tarif;
-
-  if (zone === Zone.URBAINE) {
-    // Tarif C : dimanche (y compris fériés) entre 0h et 7h
-    if (estDimanche && hour < 7) {
-      tarif = TARIF_C;
-    // Tarif B : jour férié (hors dimanche 0h-7h)
-    } else if (estFerie) {
-      tarif = TARIF_B;
-    // Tarif B : dimanche de 7h à 24h
-    } else if (estDimanche && hour >= 7) {
-      tarif = TARIF_B;
-    // Tarif A : lundi-samedi de 10h à 17h (heure strictement < 17)
-    } else if (estLundiSamedi && hour >= 10 && hour < 17) {
-      tarif = TARIF_A;
-    // Tarif B : lundi-samedi hors 10h-17h
-    } else {
-      tarif = TARIF_B;
-    }
-  } else if (zone === Zone.SUBURBAINE) {
-    // Tarif C : dimanche (y compris fériés) toute la journée
-    if (estDimanche || estFerie) {
-      tarif = TARIF_C;
-    // Tarif B : lundi-samedi de 7h à 19h
-    } else if (estLundiSamedi && hour >= 7 && hour < 19) {
-      tarif = TARIF_B;
-    // Tarif C : lundi-samedi de 19h à 7h
-    } else {
-      tarif = TARIF_C;
-    }
-  } else {
-    // Hors zone : toujours tarif C
-    tarif = TARIF_C;
-  }
-
-  return PRISE_EN_CHARGE + tarif * distance;
 }
