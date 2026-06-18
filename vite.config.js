@@ -7,5 +7,5 @@ export default defineConfig({
     environment: 'node',
     globals: true,
   },
-  base: process.env.VITE_BASE_URL || '/',
+  base: import.meta.env.VITE_BASE_URL || '/',
 })
