@@ -20,7 +20,7 @@ describe('TaxiFareCalculator', () => {
 
     it('Tarif B : Lundi-Samedi, 17h00-10h00 (nuit)', () => {
       // Mardi (2), 18h → TARIF_B
-      const result = calculateFare(2, 18, Zone.URBAINE, 10.5, false);7
+      const result = calculateFare(2, 18, Zone.URBAINE, 10.5, false);
       
       expect(result).toBeCloseTo(16.46);
     });
@@ -131,6 +131,39 @@ describe('TaxiFareCalculator', () => {
    * 
    * Attention, le jeu de test doit comporter des heures et des distances variées afin que le jeu de test soit complet.
    */
+  
+  describe('Hors zone', () => {
+
+  it('Tarif C : lundi à midi', () => {
+    const result = calculateFare(1, 12, Zone.HORS_ZONE, 10.5, false);
+
+    expect(result).toBeCloseTo(19.19);
+  });
+
+  it('Tarif C : dimanche à 3h', () => {
+    const result = calculateFare(0, 3, Zone.HORS_ZONE, 10.5, false);
+
+    expect(result).toBeCloseTo(19.19);
+  });
+
+  it('Tarif C : jour férié', () => {
+    const result = calculateFare(2, 15, Zone.HORS_ZONE, 10.5, true);
+
+    expect(result).toBeCloseTo(19.19);
+  });
+
+  it('Distance nulle', () => {
+    const result = calculateFare(1, 12, Zone.HORS_ZONE, 0, false);
+
+    expect(result).toBeCloseTo(2.60);
+  });
+
+  it('Grande distance', () => {
+    const result = calculateFare(1, 12, Zone.HORS_ZONE, 100, false);
+
+    expect(result).toBeCloseTo(160.60);
+  });
+});
 
   /**
    * Test en prenant en compte la prise en charge
